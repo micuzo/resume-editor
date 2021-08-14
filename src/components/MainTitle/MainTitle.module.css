@@ -1,0 +1,70 @@
+.titleBox hr{
+    border: 0.1px solid gray;
+    background-color: rgb(42, 66, 108);
+    width: 100%;
+}
+
+.titleBox{
+    width: 100%;
+    align-items: flex-start;
+    flex-direction: column;
+    background-color: rgb(164, 164, 147);
+    background-color: transparent;
+}
+
+.titleText{
+    display: flex;
+    flex-direction: row;
+    font-size: 30px;
+    margin: 1px;
+    padding: 5px;
+}
+
+.titleBlue{
+    margin: 5px;
+    color: rgb(42, 66, 108);
+}
+
+
+.titleBlack{
+    margin: 5px;
+    color: white;
+    color: rgb(40, 40, 40);
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    height: 100px;
+}
+
+.vr{
+    border: 1px solid rgb(42, 66, 108);
+    height: 60%;
+    margin-left: 15px;
+    background-color: rgb(42, 66, 108);
+}
+
+.logo{
+    margin: 0 0 0 5%;
+    border-radius: 5px;
+    border: 3px solid rgb(42, 66, 108);
+    width: 50px;
+    padding: 4px;
+    background-color: white;
+}
+
+@media only screen and (max-width: 1000px) {
+
+    .titleBlue{
+        font-size: 30px;
+        margin-right: 0;
+    }
+
+    .titleBlack{
+        font-size: 30px;
+    }
+
+}

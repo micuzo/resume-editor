@@ -1,0 +1,110 @@
+.HomePage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    padding-top: 5vh;
+}
+
+.content{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 60px;
+}
+
+.infoCard{
+    position: relative;
+    width: 400px;
+    height: 200px;
+    background-color: white;
+    box-shadow: 3px 3px 30px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.infoCardText{
+    width: 100%;
+    padding-left: 15px;
+}
+
+.vr{
+    height: 600px;
+    width: 1px;
+    background-color: rgb(175, 175, 175);
+    margin-left: 70px;
+    margin-right: 70px;
+}
+
+.welcome1{
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+.welcome2{
+    font-weight: bold;
+    font-size: 20px;
+    color: #90907f;
+    margin-top: 1px;
+    text-overflow: ellipsis;
+}
+
+.signOut{
+    position: absolute;
+    width: 100%;
+    border: none;
+    margin-top: 5px;
+    height: 40px;
+    transition: 0.2s;
+    bottom: 20px;
+}
+
+.signOut:hover{
+    background-color: #90907f;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 1000px) {
+
+    .infoCard{
+        position: static;
+        display: flex;
+        flex-direction: row;
+        width: 60%;
+        height: 50px;
+        padding-left: 5px;
+        position: absolute;
+        bottom: 20px;
+        left: 10px;
+        outline: none;
+        background-color: white;
+        box-shadow: 0px 6px 16px 2px rgba(0, 0, 0, 0.3);
+        transition: 0.2s;
+        cursor: pointer;
+    }
+
+    .signOut{
+        position: static;
+        width: 30%;
+        border: none;
+        border-radius: 0 10px 10px 0px;
+        margin-top: 0px;
+        margin-left: 6px;
+        height: 100%;
+        bottom: 0px;
+    }
+
+    .welcome2{
+        overflow: hidden;
+        font-weight: bold;
+        font-size: 15px;
+        color: #90907f;
+        margin: auto;
+        width: calc(70%);
+        text-align: center;
+    }
+    
+}
