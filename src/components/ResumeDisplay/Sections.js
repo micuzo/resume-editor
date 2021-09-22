@@ -217,15 +217,15 @@ const Skills = (props) => {
         generalText: allStyles.GeneralText
     }
     
-    let skills = [[], [], [], []];
+    let skills = [[], [], []];
     let skillsJSX = [[], [], []];
 
     //Sort the skills into the correct arrays
     data.forEach((skill) => {
-        if(skill.proficiency === 'strong') skills[0].push(skill);
-        else if(skill.proficiency === 'medium') skills[1].push(skill);
-        else if(skill.proficiency === 'familiar') skills[2].push(skill);
-        else if(skill.proficiency === 'n/a') skills[3].push(skill);
+        if(!skill.type) skills[0].push(skill);
+        else if(skill.type === 'language') skills[0].push(skill);
+        else if(skill.type === 'technology') skills[1].push(skill);
+        else if(skill.type === 'database') skills[2].push(skill);
     });
 
     //Make JSX elements of the skills
@@ -243,7 +243,7 @@ const Skills = (props) => {
     |                            IMPORTANT                              |
     ---------------------------------------------------------------------
     */
-    //React-pdf seems to set view width to 100% of container by default! Extra view here is included as a work-around to have lines have a dynamic length.
+    //React-pdf seems to set view width to 100% of container by default! Extra "fill" view here is included as a work-around to have lines have a dynamic length.
     return(
         <TitledSection section="Skills">
             <View style={styles.view}>

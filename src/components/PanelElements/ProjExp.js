@@ -79,6 +79,7 @@ const ProjExp = (props) => {
         return(
             <div style={style} key={index}>
                 {inputs}
+                <div></div>
             </div>
         );
     });

@@ -60,8 +60,8 @@ const Skills = (props) => {
                 />
                 <Dropdowm
                     key={index+'dd'}
-                    value={skill.proficiency}
-                    update={(event) => inputChangeHandler('proficiency', index, event.target.value.toLowerCase())}
+                    value={skill.type}
+                    update={(event) => inputChangeHandler('type', index, event.target.value.toLowerCase())}
                 />
                 <button onClick={() => removeSkill(index)} style={buttonStyle}>X</button>
             </div>

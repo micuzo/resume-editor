@@ -39,7 +39,7 @@ const borderBlue = '#99a4b8';
 //font sizes
 const nameFS = 36;
 const infoFS = 9;
-const headingTitleFS = 14;
+const headingTitleFS = 12;
 const large = 10;
 const regular = 9.5;
 const small = 8;
@@ -47,8 +47,8 @@ const bulletSize = 14;
 const descriptionSize = 10;
 
 //other
-const sectionPadding = '11pt';
-const sectionMargin = '13pt';
+const sectionPadding = '10pt';
+const sectionMargin = '10pt';
 
 //Word -> PDF font size
 // Word * 1.39 = PDF font size
@@ -272,13 +272,13 @@ const styles = StyleSheet.create({
             display: 'flex',
             flexDirection: 'column',
             padding: '0pt 10pt 0 10pt',
-            marginTop: 10,
+            marginTop: 5,
         },
         labelAndLineView:{
             display: 'flex',
             flexDirection: 'row',
             alignItems: 'center',
-            marginTop: '5pt',
+            marginTop: '4pt',
         },
         lineView:{
             display: 'flex',
