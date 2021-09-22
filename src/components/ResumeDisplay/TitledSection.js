@@ -9,19 +9,10 @@ const TitledSection = (props) => {
         ...allStyles.Section
     }
 
-    const makeHR = () => {
-        return(
-            <View style={styles.hrContainer}>
-                <View style={styles.hr}></View>
-            </View>
-        )
-    }
-
     const makeHeading = (title) => {
         return(
             <View style={styles.heading}>
                 <Text style={styles.headingTitle}>{title}</Text>
-                {makeHR()}
             </View>
         );
     }

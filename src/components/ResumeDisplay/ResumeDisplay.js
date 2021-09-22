@@ -35,7 +35,7 @@ const ResumeDisplay = (props) => {
     // Create Document Component
     const MyDocument = () => (
         <Document title={props.title}>
-            <Page size="LETTER" style={styles.page}>
+            <Page size="A4" style={styles.page}>
                 {sectionsJSX}
             </Page>
         </Document>

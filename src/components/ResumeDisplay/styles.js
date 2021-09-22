@@ -1,10 +1,17 @@
 import { StyleSheet, Font } from '@react-pdf/renderer';
 import fontLight from '../../assets/fonts/Roboto-Light.ttf';
+import fontNormal from '../../assets/fonts/Roboto-Regular.ttf';
 import fontBold from '../../assets/fonts/Roboto-Medium.ttf';
 
 Font.register({
     family: "Roboto", 
     src: fontLight,
+    fontWeight: 'light'
+});
+
+Font.register({
+    family: "Roboto", 
+    src: fontNormal,
     fontWeight: 'normal'
 });
 
@@ -19,29 +26,28 @@ Font.register({
 const black = '#000000';
 const white = '#ffffff';
 const darkBlue = '#314871';
-const headingBlue = '#335898';
-const hrBlue = '#adc1e5';
+const beige = "#DDDDD5";
+const headingGrey = '#F3F3F3';
+const darkGreen = "#484B36";
 const highlightBlue = '#e4f1fb';
-const gray = '#5b5b5b';
-const schoolBlue = '#5875aa';
-const degreeBlue = '#5b83cb';
-const bulletBlue = '#b4c6e7';
+const grey = '#737373';
 const strongGreen = '#484b36';
 const mediumGreen = '#717461';
 const lightGreen = '#90907f';
 const borderBlue = '#99a4b8';
 
 //font sizes
-const nameFS = 22;
-const infoFS = 11;
+const nameFS = 36;
+const infoFS = 9;
 const headingTitleFS = 14;
-const regular = 10;
-const small = 9;
+const large = 10;
+const regular = 9.5;
+const small = 8;
 const bulletSize = 14;
 const descriptionSize = 10;
 
 //other
-const sectionPadding = '15pt';
+const sectionPadding = '11pt';
 const sectionMargin = '13pt';
 
 //Word -> PDF font size
@@ -57,8 +63,7 @@ const styles = StyleSheet.create({
         page:{
             display: 'flex',
             flexDirection: 'column',
-            paddingVertical: '4%',
-            paddingHorizontal: '6%',
+            padding: '30pt',
             alignItems: 'center',
             fontFamily: "Roboto",
         }
@@ -70,93 +75,99 @@ const styles = StyleSheet.create({
             marginBottom: sectionMargin,
         },
         heading:{
-            display: 'flex',
-            flexDirection: 'row',
             width: '100%',
-            marginBottom: -6,
+            backgroundColor: headingGrey,
+            padding: '5pt 0pt 5pt 5pt',
+            borderRadius: '5pt'
         },
         headingTitle:{
-            color: headingBlue,
+            color: darkBlue,
             fontWeight: 'bold',
             fontSize: headingTitleFS,
             marginRight: '10pt'
         },
-        hrContainer:{
-            display: 'flex',
-            flexDirection: 'column',
-            padding: 0,
-            margin: 0,
-            flexGrow: 1,
-            height: headingTitleFS,
-            alignItems: 'center'
-        },
-        hr:{
-            height: '70%',
-            width: '100%',
-            borderBottom: `1pt solid ${hrBlue}`,
-            margin: 0
-        }
     },
     PersonalInformation:{
         personalInformationView:{
             display: 'flex',
-            flexDirection: 'column',
+            flexDirection: 'row',
             width: '100%',
-            alignItems: 'center',
+            justifyContent: 'space-between',
+            alignItems: 'end',
+            marginBottom: sectionPadding
+        },
+        left:{
+            display: 'flex',
+            flexDirection: 'column',
+            paddingLeft: '5pt'
+        },
+        links:{
+            display: 'flex',
+            flexDirection: 'row',
+            
+        },
+        link:{
+            fontSize: regular,
+            fontWeight: 'light',
+            marginRight: 15
         },
         name:{ 
             fontSize: nameFS,
-            color: '#314871',
+            color: darkBlue,
             fontWeight: 'normal',
-            borderBottom: `1pt solid ${darkBlue}`,
-            paddingLeft: '10pt',
-            paddingRight: '5pt',
-            paddingBottom: '5pt',
-            marginBottom: '8pt'
+            marginBottom: 5,
+            fontWeight: 'light',
         },
         infoBox:{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'end',
+            backgroundColor: beige,
             fontSize: infoFS,
-            color: gray,
+            color: darkGreen,
+            border: 'none',
+            padding: '10pt 10pt 8pt 10pt',
+            borderRadius: '10pt'
+        },
+        infoBoxText:{
+            display: 'block',
             fontWeight: 'bold',
-            border: `1pt solid ${gray}`,
-            paddingBottom: '4pt',
-            paddingLeft: '6pt',
-            paddingTop: '6pt',
-            paddingRight: '1pt',
-            borderRadius: '5pt',
-            marginBottom: '15pt'
+            marginBottom: '2pt'
         }
 
     },
     Education:{
         degree:{
-            color: degreeBlue,
-            fontSize: regular,
-            fontWeight: 'bold'
+            color: darkBlue,
+            fontSize: large,
+            fontWeight: 'normal'
         },
         school:{
-            color: schoolBlue,
-            fontSize: regular,
+            color: black,
+            fontSize: large,
+            fontWeight: 'normal'
         },
         timeline:{
-            color: schoolBlue,
+            color: grey,
             fontSize: small,
-            fontWeight: 'bold'
+            fontWeight: 'normal'
         },
         location:{
-            color: black,
-            fontSize: small
+            color: grey,
+            fontSize: regular,
+            fontWeight: 'normal'
         },
         secondaryLine:{
-            color: black,
-            fontSize: small,
-            fontWeight: 'bold'
+            color: grey,
+            fontSize: regular,
+            fontWeight: 'normal'
         },
         educationView:{
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'space-between',
-            paddingTop: 12
+            paddingTop: 12,
+            paddingHorizontal: '5pt'
         },
         educationLeft:{
             display: 'flex',
@@ -180,7 +191,8 @@ const styles = StyleSheet.create({
             flexDirection: 'row',
             justifyContent: 'space-between',
             alignItems: 'center',
-            width: '100%'
+            width: '100%',
+            paddingHorizontal: '5pt'
         },
         left:{
             display: 'flex',
@@ -191,14 +203,14 @@ const styles = StyleSheet.create({
             justifyContent: 'flex-end'
         },
         title:{
-            color: headingBlue,
-            fontWeight: 'bold',
+            color: darkBlue,
+            fontWeight: 'normal',
             fontSize: regular
         },
         timeline:{
-            color: schoolBlue,
+            color: grey,
             fontSize: small,
-            fontWeight: 'bold'
+            fontWeight: 'normal'
         }
     },
     ProjExp:{
@@ -206,6 +218,7 @@ const styles = StyleSheet.create({
             paddingTop: sectionPadding,
             display: 'flex',
             flexDirection: 'column',
+            paddingHorizontal: '5pt'
         },
         header:{
             display: 'flex',
@@ -221,16 +234,17 @@ const styles = StyleSheet.create({
             flexDirection: 'row',
             justifyContent: 'flex-start',
             alignItems: 'center',
+            marginBottom: '3pt'
         },
         title:{
-            color: headingBlue,
-            fontWeight: 'bold',
+            color: darkBlue,
+            fontWeight: 'normal',
             fontSize: regular,
         },
         description:{
             color: black,
             fontSize: descriptionSize,
-            fontWeight: 'bold',
+            fontWeight: 'normal',
         },
         responsibilitiesView:{
             display: 'flex',
@@ -248,93 +262,61 @@ const styles = StyleSheet.create({
             flexDirection: 'row',
         },
         timeline:{
-            color: schoolBlue,
+            color: grey,
             fontSize: small,
-            fontWeight: 'bold' ,
+            fontWeight: 'normal'
         }
     },
     Skills: {
         view:{
             display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            width: '100%',
+            flexDirection: 'column',
             padding: '0pt 10pt 0 10pt',
             marginTop: 10,
+        },
+        labelAndLineView:{
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+            marginTop: '5pt',
         },
         lineView:{
             display: 'flex',
             flexDirection: 'row',
-            height: '20pt',
-            marginTop: '1pt',
-            width: '100%'
+            alignItems: 'center',
+            height: '18pt',
+            backgroundColor: beige,
+            borderRadius: '5pt',
         },
-        skillsView:{
-            display: 'flex',
-            flexDirection: 'column',
-            width: '80%',
-        },
-        sideView:{
-            display: 'flex',
-            flexDirection: 'column',
-            width: '20%'
-        },
-        strongSkill:{
-            display: 'flex',
-            justifyContent: 'space-around',
-            flexDirection: 'row',
-            backgroundColor: strongGreen,
-            borderTopLeftRadius: '4pt',
-            borderBottomLeftRadius: '4pt',
-            color: white,
+        skill:{
+            paddingHorizontal: '10pt',
+            color: darkGreen,
             fontSize: regular,
-            alignItems: 'center'
+            fontWeight: 'bold',
+            border: 'none',
+            backgroundColor: beige,
+            borderRadius: '5pt'
         },
-        mediumSkill:{
-            display: 'flex',
-            justifyContent: 'space-around',
-            flexDirection: 'row',
-            backgroundColor: mediumGreen,
-            color: white,
-            fontSize: regular,
-            marginLeft: -1,
-            alignItems: 'center'
+        fill:{
+            width:'100%'
         },
-        familiarSkill:{
-            display: 'flex',
-            justifyContent: 'space-around',
-            flexDirection: 'row',
-            backgroundColor: lightGreen,
-            borderTopRightRadius: '4pt',
-            borderBottomRightRadius: '4pt',
-            color: white,
+        label:{
             fontSize: regular,
-            marginLeft: -1,
-            alignItems: 'center'
-        },
-        additionalSkill:{
-            backgroundColor: white,
-            borderRadius: '2pt',
-            color: black,
-            textAlign: 'center',
-            paddingTop: 3.5,
-            fontSize: regular,
-            border: '1pt solid ' + borderBlue,
-            height: '20pt',
-            marginTop: '1pt',
-
+            fontWeight: 'normal',
+            color: darkBlue,
+            width: '70pt'
         }
     },
     GeneralText: {
         highlightedBold:{
-            fontWeight: 'bold',
+            fontWeight: 'normal',
             fontSize:  regular,
             backgroundColor: highlightBlue,
             margin: 0,
             padding: 0,
         },
         bold:{
-            fontWeight: 'bold',
+            fontWeight: 'normal',
             fontSize:  regular,
             paddingBottom: '0pt',
             margin: 0,
@@ -348,6 +330,7 @@ const styles = StyleSheet.create({
         },
         regular:{
             color: black,
+            fontWeight: 'light',
             fontSize: regular,
             margin: 0,
             padding: 0,
@@ -359,7 +342,7 @@ const styles = StyleSheet.create({
             padding: 0
         },
         boldSmall:{
-            fontWeight: 'bold',
+            fontWeight: 'normal',
             fontSize:  small,
         },
         lineView:{
@@ -368,18 +351,26 @@ const styles = StyleSheet.create({
             justifyContent: 'flex-start',
             flexWrap: 'wrap',
             alignItems: 'center',
+            marginBottom: '4pt'
+        },
+        lineViewDesc:{
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'flex-start',
+            flexWrap: 'wrap',
+            alignItems: 'center',
         },
         bulletPoint:{
-            fontWeight: 'bold',
-            fontSize: bulletSize,
-            color: bulletBlue,
+            fontWeight: 'light',
+            fontSize: regular,
+            color: black,
             width: bulletSize / 2,
             margin: 0,
             height: '100%',
             //paddingTop: 0.5
         },
         indent:{
-            fontWeight: 'bold',
+            fontWeight: 'normal',
             fontSize: bulletSize,
             width: bulletSize / 2,
             margin: 0,

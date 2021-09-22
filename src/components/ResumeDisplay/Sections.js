@@ -66,7 +66,7 @@ const readTextArea = (input, isDescription = false) => {
         });
 
         return (
-            <View key={`line ${lineIndex} ${input}`} style={styles.lineView}>
+            <View key={`line ${lineIndex} ${input}`} style={isDescription ? styles.lineViewDesc : styles.lineView}>
                 {lineStart}
                 <Text>
                     {textComponents}
@@ -107,14 +107,26 @@ const Education = (props) => {
 const PersonalInformation = (props) =>{
 
     const data = props.data;
-    const infoBoxText =  `${data.phoneNumber} | ${data.email} | ${data.location}`;
+    const infoBoxText =  `${data.email}
+    ${data.phoneNumber}
+    ${data.location}`;
     
     const styles = allStyles.PersonalInformation;
 
     return(
         <View style={styles.personalInformationView}>
-            <Text style={styles.name}>{data.name} </Text>
-            <Text style={styles.infoBox}>{infoBoxText} </Text>
+            <View style={styles.left}>
+                <Text style={styles.name}>{data.name} </Text>
+                <View style={styles.links}>
+                    <Text style={styles.link}>/MichaelUz</Text>
+                    <Text style={styles.link}>/in/micuzo</Text>
+                </View>
+            </View>
+            <View style={styles.infoBox}>
+                <Text style={styles.infoBoxText}>{data.email}</Text>
+                <Text style={styles.infoBoxText}>{data.phoneNumber}</Text>
+                <Text style={styles.infoBoxText}>{data.location}</Text>
+            </View>
         </View>
     )
 }
@@ -204,11 +216,7 @@ const Skills = (props) => {
         ...allStyles.Skills,
         generalText: allStyles.GeneralText
     }
-
-    let skillCount = {
-        first: 0,
-        second: 0
-    };
+    
     let skills = [[], [], [], []];
     let skillsJSX = [[], [], []];
 
@@ -223,86 +231,45 @@ const Skills = (props) => {
     //Make JSX elements of the skills
     for (let i = 0; i < skills.length; i++){
         skillsJSX[i] = skills[i].map((skill, index) => {
-            
-            //Determine char count for each line
-            if(i < 3){
-                if(index >= 0 && index < Math.floor(skills[i].length / 2)) 
-                    skillCount.first++;
-            
-                if(index >= Math.floor(skills[i].length / 2) && index < skills[i].length)
-                    skillCount.second++;
-            }
-            
-            
             if (skill.proficiency !== 'n/a')
-                return <Text key={index+skill.name} style={styles.generalText.whiteRegular}>{skill.name}</Text>;
-            else
-                return(
-                    <View key={index + skill.name + 'view'} style={styles.additionalSkill}>
-                        <Text key={index+skill.name} style={styles.generalText.boldSmall}>{skill.name}</Text>
-                    </View>
-                ); 
-                
+                return <Text key={index+skill.name} style={styles.skill}>{skill.name}</Text>;
+
+            return null;
         });
     }
 
-    //Determine final style of section
-    const determineStyle = (elements, style, line=0) => {
-        let numSkills = elements.length;
-
-        let total = Math.max(line === 0 ? skillCount.first : skillCount.second, 1);
-        let width = numSkills / total * 98;
-
-        width+='%';
-        return {
-            ...style,
-            width: width
-        }
-    }
-
-    //Make skill line JSX
-    let skillLinesJSX = [[],[]];
-
-    for(let i = 0; i < 2; i++){
-        let start;
-        let end;
-
-        for (let j = 0; j < 3; j++){
-            let style;
-            if(j === 0) style = styles.strongSkill;
-            if(j === 1) style = styles.mediumSkill;
-            if(j === 2) style = styles.familiarSkill;
-
-            if(i === 0){
-                start = 0;
-                end = Math.floor(skillsJSX[j].length / 2);
-            }
-            else{
-                start = Math.floor(skillsJSX[j].length / 2);
-                end = skillsJSX[j].length;
-            }
-            
-            skillLinesJSX[i].push(
-                <View key={i+j+'section'} style={determineStyle(skills[j].slice(start,end), style, i)}>
-                    {skillsJSX[j].slice(start, end)}
-                </View>
-            )
-        }
-    }
-    
+    /*
+    ---------------------------------------------------------------------
+    |                            IMPORTANT                              |
+    ---------------------------------------------------------------------
+    */
+    //React-pdf seems to set view width to 100% of container by default! Extra view here is included as a work-around to have lines have a dynamic length.
     return(
         <TitledSection section="Skills">
             <View style={styles.view}>
-                <View style={styles.skillsView}>
+    
+                <View style={styles.labelAndLineView}>
+                    <Text style={styles.label}>Languages: </Text>
                     <View style={styles.lineView}>
-                        {skillLinesJSX[0]}
+                        {skillsJSX[0]}
                     </View>
-                    <View style={styles.lineView}>
-                        {skillLinesJSX[1]}
-                    </View>
+                    <View style={styles.fill}></View>
                 </View>
-                <View style={styles.sideView}>
-                    {skillsJSX[3]}
+
+                <View style={styles.labelAndLineView}>
+                    <Text style={styles.label}>Technologies: </Text>
+                    <View style={styles.lineView}>
+                        {skillsJSX[1]}
+                    </View>
+                    <View style={styles.fill}></View>
+                </View>
+
+                <View style={styles.labelAndLineView}>
+                    <Text style={styles.label}>Databases: </Text>
+                    <View style={styles.lineView}>
+                        {skillsJSX[2]}
+                    </View>
+                    <View style={styles.fill}></View>
                 </View>
             </View>
         </TitledSection>
@@ -316,7 +283,7 @@ export {
     ProjExp as Experience,
     ShortProjExp as ShortExperience,
     ShortProjExp as ShortProjects,
-    Skills as Skills
+    Skills
 }
 
 export const SectionTypes = {
