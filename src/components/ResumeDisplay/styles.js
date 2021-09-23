@@ -267,19 +267,19 @@ const styles = StyleSheet.create({
             fontWeight: 'normal'
         },
         tags:{
+            backgroundColor: 'white',
             display: 'flex',
             flexDirection: 'row',
             margin: 0,
+            marginLeft: '5pt',
             padding: 0,
         },
         tag:{
-            backgroundColor: beige,
             fontSize: regular,
             paddingHorizontal: '5pt',
             color: darkGreen,
-            marginLeft: '5pt',
-            borderRadius: '5pt',
-            fontWeight: 'bold'
+            marginHorizontal: '1pt',
+            fontWeight: 'normal'
         }
     },
     Skills: {
