@@ -265,6 +265,22 @@ const styles = StyleSheet.create({
             color: grey,
             fontSize: small,
             fontWeight: 'normal'
+        },
+        tags:{
+            display: 'flex',
+            flexDirection: 'row',
+            margin: 0,
+            padding: 0,
+        },
+        tag:{
+            backgroundColor: beige,
+            fontSize: regular,
+            paddingHorizontal: '5pt',
+            paddingVertical: '1pt',
+            color: darkGreen,
+            marginLeft: '5pt',
+            borderRadius: '5pt',
+            fontWeight: 'normal'
         }
     },
     Skills: {

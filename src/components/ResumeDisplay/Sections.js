@@ -78,7 +78,6 @@ const readTextArea = (input, isDescription = false) => {
     return lineComponents;
 }
 
-
 const Education = (props) => {
 
     const data = props.data;
@@ -163,21 +162,33 @@ const ProjExp = (props) => {
     
     let key = props.title === 'Projects' ? 'title' : 'company';
 
-    const ProjExps = data.map((element, index) => {
+    const ProjExps = data.map((projExp, index) => {
 
-        if(element.responsibilities !== ''){
-            const textComponents = readTextArea(element.responsibilities);
-            const descComponents = readTextArea(element.description, true);
+        const tags = projExp.tags?.map((tag, index) => {
+            return (
+                <Text key={index + 'resdisptag'} style={styles.tag}>{tag}</Text>
+            );
+        });
+
+        console.log(tags);
+
+        if(projExp.responsibilities !== ''){
+            const textComponents = readTextArea(projExp.responsibilities);
+            const descComponents = readTextArea(projExp.description, true);
 
             return(
                 <View key={index} style={styles.view}>
                     <View style={styles.header}>
                         <View style={styles.titleDesc}>
-                            <Text style={styles.title}>{element[key] + ' | '}</Text>
+                            <Text style={styles.title}>{projExp[key] + ' | '}</Text>
                             {descComponents}
+                            <View style={styles.tags}>
+                                {tags}
+                            </View>
                         </View>
+                        
                         <View style={styles.timelineView}>
-                            <Text style={styles.timeline}>{element.timeline}</Text>
+                            <Text style={styles.timeline}>{projExp.timeline}</Text>
                         </View>
                     </View>
                     <View style={styles.responsibilitiesView}>
@@ -187,15 +198,15 @@ const ProjExp = (props) => {
             );
         }
         else{
-            const descComponents = readTextArea(element.description, true);
+            const descComponents = readTextArea(projExp.description, true);
             return (
                 <View key={index + 'short'} style={shortStyles.view}>
                     <View style={shortStyles.left}>
-                        <Text style={shortStyles.title}>{element[key] + ' | '}</Text>
+                        <Text style={shortStyles.title}>{projExp[key] + ' | '}</Text>
                         {descComponents}
                     </View>
                     <View style={shortStyles.right}>
-                        <Text style={shortStyles.timeline}>{element.timeline}</Text>
+                        <Text style={shortStyles.timeline}>{projExp.timeline}</Text>
                     </View>
                 </View>
             )

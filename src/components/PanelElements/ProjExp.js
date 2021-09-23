@@ -80,7 +80,7 @@ const ProjExp = (props) => {
         return(
             <div style={style} key={index}>
                 {inputs.slice(0, inputs.length - 1)}
-                <TagManager tags={props.data[index].tags || ["Angular", "Javascript", "Java"]} update={(newTags)=> inputChangeHandler("tags", index, newTags)}/>
+                <TagManager tags={props.data[index].tags || []} update={(newTags)=> inputChangeHandler("tags", index, newTags)}/>
                 {inputs.slice(inputs.length-1)}
             </div>
         );
