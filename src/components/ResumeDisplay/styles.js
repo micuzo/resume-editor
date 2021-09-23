@@ -276,11 +276,10 @@ const styles = StyleSheet.create({
             backgroundColor: beige,
             fontSize: regular,
             paddingHorizontal: '5pt',
-            paddingVertical: '1pt',
             color: darkGreen,
             marginLeft: '5pt',
             borderRadius: '5pt',
-            fontWeight: 'normal'
+            fontWeight: 'bold'
         }
     },
     Skills: {
