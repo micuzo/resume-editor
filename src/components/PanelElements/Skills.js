@@ -35,7 +35,7 @@ const Skills = (props) => {
         const newData = [...props.data];
         newData.push({
             name: 'Skill',
-            proficiency: 'strong'
+            type: 'language'
         });
         props.update(newData);
     }

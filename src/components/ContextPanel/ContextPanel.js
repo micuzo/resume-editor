@@ -46,7 +46,8 @@ const ContextPanel = (props) => {
         <div className={classes.ContextPanel}>
             {props.user.email !== 'Guest' ? 
                 <GeneralInfo save={(meta) => props.metaUpdate(meta)} meta={props.meta}/> : 
-                <div style={{height: '30px'}}></div>}
+                <div style={{height: '30px'}}></div>
+            }
             <SectionNav cur={currentPanelIndex} update={currentPanelHandler} sections={Panels}/>
             <CurrentPanelJSX
                 title={prettyPrint(currentPanel)}

@@ -3,13 +3,14 @@ import ElementContainer from './ElementContainer/ElementContainer';
 import Button from '../Button/Button';
 import Input from '../Input/Input';
 import SectionNav from '../SectionNav/SectionNav';
+import TagManager from '../TagManager/TagManager';
 
 
 const ProjExp = (props) => {
     
     let [currentPanelIndex, updateCPIndex] = useState(0);
     const word = props.title === 'Projects' ? 'Project' : 'Experience';
-
+    
     const inputChangeHandler = (dataItem, index, value) => {
         let newData = [...props.data];
         newData[index][dataItem] = value;
@@ -78,8 +79,9 @@ const ProjExp = (props) => {
 
         return(
             <div style={style} key={index}>
-                {inputs}
-                <div></div>
+                {inputs.slice(0, inputs.length - 1)}
+                <TagManager tags={props.data[index].tags || ["Angular", "Javascript", "Java"]} update={(newTags)=> inputChangeHandler("tags", index, newTags)}/>
+                {inputs.slice(inputs.length-1)}
             </div>
         );
     });

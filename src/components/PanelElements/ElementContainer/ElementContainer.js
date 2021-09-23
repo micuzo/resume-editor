@@ -6,7 +6,7 @@ import classes from './ElementContainer.module.css';
 const ElementContainer = (props) => {
 
     return(
-        <div>
+        <div className={classes.container}>
             <h2 className={classes.Title}>{props.title}</h2>
             <div className={classes.Form}>
                 {props.children}
