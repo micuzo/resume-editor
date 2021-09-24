@@ -6,6 +6,7 @@ import TitledSection from './TitledSection';
 
 import allStyles from './styles';
 import { SkillTypes } from '../../services/schemas';
+import { prettyPrint } from '../../services/helper';
 
 const readTextArea = (input, isDescription = false) => {
     if (input.length === 0 || input === undefined || input === null) return <Text></Text>;
@@ -247,10 +248,12 @@ const Skills = (props) => {
 
     //Sort the skills into the correct arrays
     data.forEach((skill) => {
-        if(!skill.type) skills[0].push(skill);
-        else if(skill.type === SkillTypes.Language) skills[0].push(skill);
-        else if(skill.type === SkillTypes.Technology) skills[1].push(skill);
-        else if(skill.type === SkillTypes.Database) skills[2].push(skill);
+        const type = prettyPrint(skill.type);
+        
+        if(!type) skills[0].push(skill);
+        else if(type === SkillTypes.Language) skills[0].push(skill);
+        else if(type === SkillTypes.Technology) skills[1].push(skill);
+        else if(type === SkillTypes.Database) skills[2].push(skill);
     });
 
     //Make JSX elements of the skills

@@ -31,10 +31,6 @@ const headingGrey = '#F3F3F3';
 const darkGreen = "#484B36";
 const highlightBlue = '#e4f1fb';
 const grey = '#737373';
-const strongGreen = '#484b36';
-const mediumGreen = '#717461';
-const lightGreen = '#90907f';
-const borderBlue = '#99a4b8';
 
 //font sizes
 const nameFS = 36;
@@ -125,7 +121,6 @@ const styles = StyleSheet.create({
         name:{ 
             fontSize: nameFS,
             color: darkBlue,
-            fontWeight: 'normal',
             marginBottom: 5,
             fontWeight: 'light',
             marginLeft: 2.5
