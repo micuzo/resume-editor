@@ -1,5 +1,5 @@
 import React from 'react';
-import {PDFViewer,  Page, Text, View, Document, Font, PDFDownloadLink } from '@react-pdf/renderer';
+import {PDFViewer,  Page, Document, PDFDownloadLink } from '@react-pdf/renderer';
 import { withRouter } from 'react-router-dom';
 import MainTitle from '../MainTitle/MainTitle';
 import Button from '../Button/Button';

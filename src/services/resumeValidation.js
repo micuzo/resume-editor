@@ -18,6 +18,8 @@ const validateSimpleObject = (targetObj, inputObj) => {
 }
 
 const validateArrayOfSimpleObjects = (targetObj, inputArr) => {
+    if (!inputArr) return [];
+
     return inputArr.map(obj => validateSimpleObject(targetObj, obj));
 }
 

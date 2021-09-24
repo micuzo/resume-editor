@@ -36,7 +36,11 @@ export const SkillSchema = {
     type: ''
 }
 
-export const SkillTypeOptions = ["Language", "Technology", "Database"];
+export const SkillTypes = {
+    Language: "Language", 
+    Technology: "Technology", 
+    Database: "Database"
+};
 
 export const SectionStrings = {
     PersonalInformation: "PersonalInformation",

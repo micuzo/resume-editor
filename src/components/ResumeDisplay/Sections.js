@@ -5,6 +5,7 @@ import githubImage from '../../assets/images/github.png';
 import TitledSection from './TitledSection';
 
 import allStyles from './styles';
+import { SkillTypes } from '../../services/schemas';
 
 const readTextArea = (input, isDescription = false) => {
     if (input.length === 0 || input === undefined || input === null) return <Text></Text>;
@@ -242,12 +243,14 @@ const Skills = (props) => {
     let skills = [[], [], []];
     let skillsJSX = [[], [], []];
 
+    console.log(data);
+
     //Sort the skills into the correct arrays
     data.forEach((skill) => {
         if(!skill.type) skills[0].push(skill);
-        else if(skill.type === 'language') skills[0].push(skill);
-        else if(skill.type === 'technology') skills[1].push(skill);
-        else if(skill.type === 'database') skills[2].push(skill);
+        else if(skill.type === SkillTypes.Language) skills[0].push(skill);
+        else if(skill.type === SkillTypes.Technology) skills[1].push(skill);
+        else if(skill.type === SkillTypes.Database) skills[2].push(skill);
     });
 
     //Make JSX elements of the skills
@@ -311,12 +314,4 @@ export {
     ShortProjExp as ShortExperience,
     ShortProjExp as ShortProjects,
     Skills
-}
-
-export const SectionTypes = {
-    PERSONAL_INFORMATION: 'PersonalInformation',
-    EDUCATION: 'Education',
-    EXPERIENCE: 'Experience',
-    PROJECTS: 'Projects',
-    SKILLS: 'Skills'
 }

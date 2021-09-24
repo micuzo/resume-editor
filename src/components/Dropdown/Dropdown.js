@@ -1,16 +1,16 @@
 import React from 'react';
 import { prettyPrint }  from '../../services/helper';
-import { SkillTypeOptions } from '../../services/schemas';
+import { SkillTypes } from '../../services/schemas';
 
 import classes from './Dropdown.module.css';
 
 const Dropdowm = (props) => {
 
-    const optionsJSX = [...SkillTypeOptions].map((option, index) => (
+    const optionsJSX = Object.values({...SkillTypes}).map((option, index) => (
         <option key={`optionSkill${option}${index}`} value={option}>{option}</option>
     ));
 
-    let value = props.value === "" ? SkillTypeOptions[0] : prettyPrint(props.value);
+    let value = props.value === "" ? SkillTypes.Language : prettyPrint(props.value);
 
     return(
         <select value={value} onChange={(event) => props.update(event)} className={classes.dropdown}>
