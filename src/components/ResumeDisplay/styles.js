@@ -292,6 +292,9 @@ const styles = StyleSheet.create({
             color: darkGreen,
             marginHorizontal: '1pt',
             fontWeight: 'normal'
+        },
+        comma:{
+            color: white
         }
     },
     Skills: {
@@ -316,7 +319,7 @@ const styles = StyleSheet.create({
             borderRadius: '5pt',
         },
         skill:{
-            paddingHorizontal: '10pt',
+            paddingHorizontal: '8pt',
             color: darkGreen,
             fontSize: regular,
             fontWeight: 'bold',
@@ -332,6 +335,9 @@ const styles = StyleSheet.create({
             fontWeight: 'normal',
             color: darkBlue,
             width: '70pt'
+        },
+        invisiComma:{
+            color: beige
         }
     },
     GeneralText: {

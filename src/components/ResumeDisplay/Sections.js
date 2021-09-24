@@ -176,7 +176,10 @@ const ProjExp = (props) => {
 
         const tags = projExp.tags?.map((tag, index) => {
             return (
-                <Text key={index + 'resdisptag'} style={styles.tag}>{tag}</Text>
+                <Text key={index + 'resdisptag'} style={styles.tag}>
+                    <Text>{tag}</Text>
+                    <Text style={styles.comma}>,</Text>
+                </Text>
             );
         });
 
@@ -250,8 +253,16 @@ const Skills = (props) => {
     //Make JSX elements of the skills
     for (let i = 0; i < skills.length; i++){
         skillsJSX[i] = skills[i].map((skill, index) => {
+            const last = index >= skills[i].length - 1;
+            const comma  = last ? null : <Text style={styles.invisiComma}>,</Text>;  
+
             if (skill.proficiency !== 'n/a')
-                return <Text key={index+skill.name} style={styles.skill}>{skill.name}</Text>;
+                return(
+                    <Text key={index+skill.name} style={styles.skill}>
+                        <Text>{skill.name}</Text>
+                        {comma}
+                    </Text> 
+                );
 
             return null;
         });
