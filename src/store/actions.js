@@ -28,12 +28,31 @@ export const setResume = (resume) => {
 }
 
 export const initResume = (index, callback) => {
+    
+    //This ensures that we get the correct structure regardless of changes to resume structure
+    const fillWithDefault = (resume) => {
+        const keys = Object.keys(trueEmptyResume);
+
+        keys.forEach((key) => {
+            //Only do Personal Information and Education
+            if(!(key === "PersonalInformation" || key === "Education")) return;
+
+            const newSection = {
+                ...trueEmptyResume[key],
+                ...resume[key]
+            }
+
+            resume[key] = newSection;
+        });
+
+        return {...resume};
+    }
 
     return (dispatch) => {
         //Return Guest Resume
         if(index === -1){
             db.ref('resumeContents/Guest').once('value').then((snapshot) => {
-                dispatch(setResume(snapshot.val()));
+                dispatch(setResume(fillWithDefault(snapshot.val())));
                 dispatch(setMeta({
                     name: 'MyResume',
                     filename: 'myresume.pdf'
@@ -47,23 +66,7 @@ export const initResume = (index, callback) => {
             db.ref(path).once('value').then((snapshot) => {
                 db.ref(`resumes/${auth.currentUser.uid}/${index}`).once('value').then((meta) => {
                     
-                    //This ensures that we get the correct structure regardless of changes to resume structure
-                    const keys = Object.keys(trueEmptyResume);
-                    const newResume = snapshot.val();
-
-                    keys.forEach((key, index) => {
-                        //Only do Personal Information and Education
-                        if(!(key === "PersonalInformation" || key === "Education")) return;
-
-                        const newSection = {
-                            ...trueEmptyResume[key],
-                            ...newResume[key]
-                        }
-
-                        newResume[key] = newSection;
-                    });
-
-                    dispatch(setResume(newResume));
+                    dispatch(setResume(fillWithDefault(snapshot.val())));
                     dispatch(setMeta(meta.val()));
                     callback();
                 });

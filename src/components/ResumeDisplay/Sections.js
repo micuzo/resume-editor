@@ -50,7 +50,7 @@ const readTextArea = (input, isDescription = false) => {
 
                 if (isLastChar) currStr += "\n";
                 textComponents.push(
-                    <Text key={`${lineIndex} ${currStr}`} style={style}>
+                    <Text key={`${lineIndex} ${index} ${input}`} style={style}>
                         {currStr}
                     </Text>
                 );
