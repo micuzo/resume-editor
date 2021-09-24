@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
         },
         location:{
             color: grey,
-            fontSize: regular,
+            fontSize: small,
             fontWeight: 'normal'
         },
         secondaryLine:{

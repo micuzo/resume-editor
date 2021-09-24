@@ -4,12 +4,14 @@ import Button from '../Button/Button';
 import Input from '../Input/Input';
 import SectionNav from '../SectionNav/SectionNav';
 import TagManager from '../TagManager/TagManager';
+import { ExperienceSchema, ProjectSchema, SectionStrings } from '../../services/schemas';
+import ResumeBuilder from '../../services/ResumeBuilder';
+import prettyPrint from '../../Js/PrettyPrint';
 
 
 const ProjExp = (props) => {
     
     let [currentPanelIndex, updateCPIndex] = useState(0);
-    const word = props.title === 'Projects' ? 'Project' : 'Experience';
     
     const inputChangeHandler = (dataItem, index, value) => {
         let newData = [...props.data];
@@ -19,12 +21,7 @@ const ProjExp = (props) => {
 
     const addProjExp = () => {
         let newData = [...props.data];
-        newData.push({
-            [word === 'Project' ? 'title' : 'company']: word,
-            description: 'Did something',
-            timeline: '01/2020',
-            responsibilities: ''
-        });
+        newData.push(props.title === SectionStrings.Projects ? {...ResumeBuilder.createProject()} : {...ResumeBuilder.createExperience()});
         props.update(newData);
     }
 
@@ -55,12 +52,10 @@ const ProjExp = (props) => {
     
     const items = props.data.map((projExp, index) => {
 
-        const labels = [
-            props.title === 'Projects' ? 'Title' : 'Company',
-            'Description',
-            'Timeline',
-            'Responsibilities'
-        ]
+        const schema = props.title === SectionStrings.Projects ? ProjectSchema : ExperienceSchema;
+        const labels = Object.keys(schema)
+            .filter((key) => typeof(schema[key]) === "string")
+            .map(label => prettyPrint(label));
 
         const inputs = labels.map((label) => {
             return (
@@ -86,6 +81,8 @@ const ProjExp = (props) => {
         );
     });
 
+    const itemName = props.title === SectionStrings.Projects ? "Project" : "Experience";
+
      return(
         <ElementContainer save={props.save} title={props.title}>
             <SectionNav
@@ -94,8 +91,8 @@ const ProjExp = (props) => {
                 update={(index) => updateCPIndex(index)}
             />
             {items[currentPanelIndex]}
-            <Button click={addProjExp} color={'white'}>{`Add ${word}`}</Button>
-            <Button click={() => removeProjExp(currentPanelIndex)}color={'white'}>{`Remove ${word}`}</Button>
+            <Button click={addProjExp} color={'white'}>{`Add ${itemName}`}</Button>
+            <Button click={() => removeProjExp(currentPanelIndex)}color={'white'}>{`Remove ${itemName}`}</Button>
         </ElementContainer>
      );
 }

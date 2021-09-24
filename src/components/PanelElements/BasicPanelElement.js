@@ -18,9 +18,7 @@ const PanelElement = (props) =>{
     const info = {};
 
     keys.forEach((key) => {
-        info[key] = {
-            label: prettyPrint(key)
-        };
+        info[key] = prettyPrint(key)
     });
 
     //Form components
@@ -29,7 +27,7 @@ const PanelElement = (props) =>{
         return(
             <Input
                 key={`${props.title}.${key}`}
-                label={info[key].label}
+                label={info[key]}
                 update={(event) => inputChangeHandler(key, event.target.value)}
                 val={props.data[key]}
             />

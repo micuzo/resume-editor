@@ -262,8 +262,6 @@ const Skills = (props) => {
                     {comma}
                 </Text> 
             );
-
-            return null;
         });
     }
 

@@ -6,6 +6,7 @@ import * as PanelElements from '../PanelElements/PanelElements';
 import prettyPrint from '../../Js/PrettyPrint';
 
 import classes from './ContextPanel.module.css'
+import { SectionStrings } from '../../services/schemas';
 
 const ContextPanel = (props) => {
 
@@ -60,11 +61,11 @@ const ContextPanel = (props) => {
 }
 
 const Panels = [
-    'PersonalInformation',   //0
-    'Education',             //1
-    'Experience',            //2
-    'Projects',              //3
-    'Skills',                //4
+    SectionStrings.PersonalInformation,   //0
+    SectionStrings.Education,             //1
+    SectionStrings.Experience,            //2
+    SectionStrings.Projects,              //3
+    SectionStrings.Skills,                //4
 ]
 
 export default ContextPanel;

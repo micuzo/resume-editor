@@ -3,6 +3,7 @@ import ElementContainer from './ElementContainer/ElementContainer';
 import Input from '../Input/Input';
 import Dropdowm from '../Dropdown/Dropdown';
 import Button from '../Button/Button';
+import ResumeBuilder from '../../services/ResumeBuilder';
 
 const Skills = (props) => {
     const data = props.data;
@@ -33,10 +34,7 @@ const Skills = (props) => {
 
     const addSkill = () => {
         const newData = [...props.data];
-        newData.push({
-            name: 'Skill',
-            type: 'language'
-        });
+        newData.push({...ResumeBuilder.createSkill()});
         props.update(newData);
     }
 
@@ -61,7 +59,7 @@ const Skills = (props) => {
                 <Dropdowm
                     key={index+'dd'}
                     value={skill.type}
-                    update={(event) => inputChangeHandler('type', index, event.target.value.toLowerCase())}
+                    update={(event) => inputChangeHandler('type', index, event.target.value)}
                 />
                 <button onClick={() => removeSkill(index)} style={buttonStyle}>X</button>
             </div>

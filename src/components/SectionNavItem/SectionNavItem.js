@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import classes from './SectionNavItem.module.css';
 
@@ -6,14 +6,11 @@ const SectionNavItem = (props) =>{
 
     const classNames = props.selected ? [classes.SectionNavItem, classes.Selected].join(' ') : classes.SectionNavItem;
     
-    const svg = {
-        width: '20%',
-        height: '40%'
-    }
+    const label = props.label === "" ? "Empty" : props.label;
 
     return(
         <button onClick={props.click} className={classNames}>
-            {props.label}
+            {label}
         </button>
     );
 }
