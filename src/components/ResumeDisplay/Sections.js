@@ -114,13 +114,14 @@ const PersonalInformation = (props) =>{
     const links = [ data.github, data.linkedin].map((link, index) => {
 
         const image = index === 0 ? githubImage : linkedinImage;
-        const src = `https://www.${index === 0 ? "github.com/" : "linkedin.com/in/"}${link}`;
-        const displayLink = index === 0 ? `/${link}` : `/in/${link}`;
+        //encountering weird issue where links would appear elswhere on page.
+        //const src = `https://www.${index === 0 ? "github.com/" : "linkedin.com/in/"}${link}`;
+        const displayLink = index === 0 ? `github.com/${link}` : `linkedin.com/in/${link}`;
 
         return(
             <View key={'link' + index} style={styles.linkBox}>
                 <Image style={styles.icon} src={image}/>
-                <Link src={src} style={styles.linkText}>{displayLink}</Link> 
+                <Text wrap={false} style={styles.linkText}>{displayLink}</Text> 
             </View>
         );
     });

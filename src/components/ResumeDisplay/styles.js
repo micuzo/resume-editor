@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
         linkText:{
             fontSize: regular,
             fontWeight: 'light',
-            color: black,
+            color: grey,
             textDecoration: 'none',
         },
         linkBox:{
