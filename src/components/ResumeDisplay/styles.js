@@ -284,9 +284,9 @@ const styles = StyleSheet.create({
         tag:{
             fontSize: regular,
             paddingHorizontal: '5pt',
-            color: darkGreen,
+            color: grey,
             marginHorizontal: '1pt',
-            fontWeight: 'normal'
+            fontWeight: 'bold'
         },
         comma:{
             color: white

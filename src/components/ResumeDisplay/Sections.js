@@ -244,8 +244,6 @@ const Skills = (props) => {
     let skills = [[], [], []];
     let skillsJSX = [[], [], []];
 
-    console.log(data);
-
     //Sort the skills into the correct arrays
     data.forEach((skill) => {
         const type = prettyPrint(skill.type);
