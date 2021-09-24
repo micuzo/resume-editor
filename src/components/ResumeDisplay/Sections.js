@@ -7,7 +7,7 @@ import TitledSection from './TitledSection';
 import allStyles from './styles';
 
 const readTextArea = (input, isDescription = false) => {
-    if (input.length === 0) return "";
+    if (input.length === 0 || input === undefined || input === null) return <Text></Text>;
 
     const styles = allStyles.GeneralText;
     const brackets = new Set(["[", "]", "<", ">"]);
@@ -186,7 +186,7 @@ const ProjExp = (props) => {
         if(projExp.responsibilities !== ''){
             const textComponents = readTextArea(projExp.responsibilities);
             const descComponents = readTextArea(projExp.description, true);
-
+            
             return(
                 <View key={index} style={styles.view}>
                     <View style={styles.header}>
