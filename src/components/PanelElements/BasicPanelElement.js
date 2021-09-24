@@ -1,7 +1,7 @@
 import React from 'react';
 import ElementContainer from './ElementContainer/ElementContainer';
 import Input from '../Input/Input';
-import prettyPrint from '../../Js/PrettyPrint';
+import { prettyPrint }  from '../../services/helper';
 
 const PanelElement = (props) =>{
     

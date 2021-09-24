@@ -6,7 +6,7 @@ import SectionNav from '../SectionNav/SectionNav';
 import TagManager from '../TagManager/TagManager';
 import { ExperienceSchema, ProjectSchema, SectionStrings } from '../../services/schemas';
 import ResumeBuilder from '../../services/ResumeBuilder';
-import prettyPrint from '../../Js/PrettyPrint';
+import { prettyPrint }  from '../../services/helper';
 
 
 const ProjExp = (props) => {

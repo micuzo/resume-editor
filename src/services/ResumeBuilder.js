@@ -1,4 +1,4 @@
-import emptyResume from "../Js/emptyResume";
+import { emptyResume, tutorialResume } from "./sampleResumes";
 import { ExperienceSchema, ProjectSchema, SkillSchema } from "./schemas";
 
 
@@ -8,13 +8,16 @@ const createProject = () => ({...ProjectSchema});
 
 const createSkill = () => ({...SkillSchema});
 
-const createResume = () => ({...emptyResume});
+const createEmptyResume = () => ({...emptyResume});
+
+const createTutorialResume = () => ({...tutorialResume})
 
 const ResumeBuilder = {
     createExperience,
     createProject,
     createSkill,
-    createResume
+    createResume: createEmptyResume,
+    createTutorialResume
 }
 
 export default ResumeBuilder;

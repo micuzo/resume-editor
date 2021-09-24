@@ -1,5 +1,5 @@
 import React from 'react';
-import prettyPrint from '../../Js/PrettyPrint';
+import { prettyPrint }  from '../../services/helper';
 import { SkillTypeOptions } from '../../services/schemas';
 
 import classes from './Dropdown.module.css';

@@ -10,7 +10,7 @@ Manual text wrapping
 is required.`
 
 //To be used when new resume is created
-const tutorialResume  = {
+export const tutorialResume  = {
     [SectionStrings.PersonalInformation]:{
         name: 'John Doe',
         phoneNumber: '',
@@ -45,5 +45,3 @@ export const emptyResume = {
     [SectionStrings.Projects]:[],
     [SectionStrings.Skills]: [],   
 }
-
-export default tutorialResume;

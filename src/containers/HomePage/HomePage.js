@@ -2,16 +2,15 @@ import React, { useState, useEffect, useLayoutEffect } from 'react';
 import { connect } from 'react-redux';
 import MainTitle from '../../components/MainTitle/MainTitle';
 import ResumePreviews from '../../components/ResumePreviews/ResumePreviews';
-import SearchBar from '../../components/SearchBar/SearchBar';
 import ResPrev from '../../components/ResPrev/ResPrev';
 import AuthPage from '../AuthPage/AuthPage';
 import * as actions from '../../store/actions';
-import emptyResume from '../../Js/emptyResume';
 import { withRouter } from 'react-router-dom';
 
 
 import classes from './HomePage.module.css';
 import AddResumeButton from '../../components/AddResumeButton/AddResumeButton';
+import ResumeBuilder from '../../services/ResumeBuilder';
 
 const HomePage = (props) => {
    
@@ -71,7 +70,7 @@ const HomePage = (props) => {
 
         //Add resume name and contents to database
         props.db.ref(`resumes/${props.user.uid}`).set(newResumes);
-        props.db.ref(`resumeContents/${props.user.uid}/${resumes.length}`).set(emptyResume);
+        props.db.ref(`resumeContents/${props.user.uid}/${resumes.length}`).set(ResumeBuilder.createTutorialResume());
     }
 
     const removeResume = (index) => {

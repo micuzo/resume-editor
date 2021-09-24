@@ -1,6 +1,6 @@
 import React from 'react';
 import SectionNavItem from '../SectionNavItem/SectionNavItem';
-import prettyPrint from '../../Js/PrettyPrint';
+import { prettyPrint }  from '../../services/helper';
 
 import classes from './SectionNav.module.css';
 

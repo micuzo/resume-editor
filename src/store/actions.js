@@ -1,7 +1,7 @@
 import * as actionTypes from './actionTypes';
 import firebase, { getErrorMessage } from '../firebase/firebase';
-import emptyResume from '../Js/emptyResume';
 import validateResume from '../services/resumeValidation';
+import ResumeBuilder from '../services/ResumeBuilder';
 
 let db = firebase.database();
 let auth = firebase.auth();
@@ -104,7 +104,7 @@ export const loginUser = (email, password, login, errorFunc) => {
                     }]);
                     //Initialize list of resume contents
                     db.ref('resumeContents/' + auth.currentUser.uid).set([
-                        emptyResume
+                        ResumeBuilder.createTutorialResume()
                     ]);
                 })
                 .catch((error) => errorFunc(getErrorMessage(error.code)));

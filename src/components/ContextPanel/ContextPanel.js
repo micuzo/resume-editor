@@ -3,7 +3,7 @@ import * as  R from 'ramda';
 import SectionNav from '../SectionNav/SectionNav';
 import GeneralInfo from '../PanelElements/GeneralInfo/GeneralInfo';
 import * as PanelElements from '../PanelElements/PanelElements';
-import prettyPrint from '../../Js/PrettyPrint';
+import { prettyPrint }  from '../../services/helper';
 
 import classes from './ContextPanel.module.css'
 import { SectionStrings } from '../../services/schemas';
