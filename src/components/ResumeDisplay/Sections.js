@@ -255,14 +255,13 @@ const Skills = (props) => {
         skillsJSX[i] = skills[i].map((skill, index) => {
             const last = index >= skills[i].length - 1;
             const comma  = last ? null : <Text style={styles.invisiComma}>,</Text>;  
-
-            if (skill.proficiency !== 'n/a')
-                return(
-                    <Text key={index+skill.name} style={styles.skill}>
-                        <Text>{skill.name}</Text>
-                        {comma}
-                    </Text> 
-                );
+            
+            return(
+                <Text key={index+skill.name} style={styles.skill}>
+                    <Text>{skill.name}</Text>
+                    {comma}
+                </Text> 
+            );
 
             return null;
         });
