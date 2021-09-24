@@ -1,5 +1,4 @@
 # MyResume
->Note: I am currently adding features to MyResume. Some new functionality (i.e. tags) might not be working as intended.
 
 Checkout MyResume [here](https://myresume-2e851.web.app/)
 
