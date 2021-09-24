@@ -9,6 +9,11 @@ const GeneralInfo = (props) => {
         ...props.meta
     });
 
+    const updateName = () => {
+        alert(`Resume name changed to ${inputState.name}.`);
+        props.save(inputState);
+    }
+
     return (
         <div className={classes.GeneralInfo}>
             <h2>General Information </h2>
@@ -24,7 +29,7 @@ const GeneralInfo = (props) => {
                     })}
                     val={inputState.name}
                 />
-                <button onClick={() => props.save(inputState)} className={classes.Save}>Update Name</button>
+                <button onClick={updateName} className={classes.Save}>Update Name</button>
             </div>
             <hr className={classes.hr}/>
         </div>

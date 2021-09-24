@@ -12,7 +12,9 @@ const emptyResume  = {
         name: 'John Doe',
         phoneNumber: '',
         location: '',
-        email: ''
+        email: '',
+        github: '',
+        linkedin: '',
     },
     Education:{
         degree: "",
@@ -31,6 +33,28 @@ const emptyResume  = {
     ],
     Projects:[],
     Skills: [],
+}
+
+// Resume will always be initialized to have PersonalInformation and Education look like below
+export const trueEmptyResume = {
+    PersonalInformation:{
+        name: '',
+        phoneNumber: '',
+        location: '',
+        email: '',
+        github: '',
+        linkedin: '',
+    },
+    Education:{
+        degree: "",
+        school: "",
+        secondaryLine: "",
+        timeline: "",
+        location: ""
+    },
+    Experience:[],
+    Projects:[],
+    Skills: [],   
 }
 
 export default emptyResume;

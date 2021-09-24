@@ -1,5 +1,7 @@
 import React from 'react';
-import {Text, View, Font } from '@react-pdf/renderer';
+import {Text, View, Image, Link } from '@react-pdf/renderer';
+import linkedinImage from '../../assets/images/linkedin.png';
+import githubImage from '../../assets/images/github.png';
 import TitledSection from './TitledSection';
 
 import allStyles from './styles';
@@ -14,7 +16,6 @@ const readTextArea = (input, isDescription = false) => {
     
     let highlight = {};
     let bold = {};
-    let textComponentKey = 0;
 
     //Map all of the lines into a View components filled with Text components 
     //acting like "HTML span elements" for differently styled text
@@ -106,19 +107,28 @@ const Education = (props) => {
 const PersonalInformation = (props) =>{
 
     const data = props.data;
-    const infoBoxText =  `${data.email}
-    ${data.phoneNumber}
-    ${data.location}`;
-    
     const styles = allStyles.PersonalInformation;
+
+    const links = [ data.github, data.linkedin].map((link, index) => {
+
+        const image = index === 0 ? githubImage : linkedinImage;
+        const src = `https://www.${index === 0 ? "github.com/" : "linkedin.com/in/"}${link}`;
+        const displayLink = index === 0 ? `/${link}` : `/in/${link}`;
+
+        return(
+            <View key={'link' + index} style={styles.linkBox}>
+                <Image style={styles.icon} src={image}/>
+                <Link src={src} style={styles.linkText}>{displayLink}</Link> 
+            </View>
+        );
+    });
 
     return(
         <View style={styles.personalInformationView}>
             <View style={styles.left}>
                 <Text style={styles.name}>{data.name} </Text>
                 <View style={styles.links}>
-                    <Text style={styles.link}>/MichaelUz</Text>
-                    <Text style={styles.link}>/in/micuzo</Text>
+                    {links}
                 </View>
             </View>
             <View style={styles.infoBox}>
@@ -169,8 +179,6 @@ const ProjExp = (props) => {
                 <Text key={index + 'resdisptag'} style={styles.tag}>{tag}</Text>
             );
         });
-
-        console.log(tags);
 
         if(projExp.responsibilities !== ''){
             const textComponents = readTextArea(projExp.responsibilities);

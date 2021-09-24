@@ -1,6 +1,6 @@
 import * as actionTypes from './actionTypes';
 import firebase, { getErrorMessage } from '../firebase/firebase';
-import emptyResume from '../Js/emptyResume';
+import emptyResume, { trueEmptyResume } from '../Js/emptyResume';
 
 let db = firebase.database();
 let auth = firebase.auth();
@@ -46,7 +46,24 @@ export const initResume = (index, callback) => {
             let path = `resumeContents/${auth.currentUser.uid}/${index}`;
             db.ref(path).once('value').then((snapshot) => {
                 db.ref(`resumes/${auth.currentUser.uid}/${index}`).once('value').then((meta) => {
-                    dispatch(setResume(snapshot.val()));
+                    
+                    //This ensures that we get the correct structure regardless of changes to resume structure
+                    const keys = Object.keys(trueEmptyResume);
+                    const newResume = snapshot.val();
+
+                    keys.forEach((key, index) => {
+                        //Only do Personal Information and Education
+                        if(!(key === "PersonalInformation" || key === "Education")) return;
+
+                        const newSection = {
+                            ...trueEmptyResume[key],
+                            ...newResume[key]
+                        }
+
+                        newResume[key] = newSection;
+                    });
+
+                    dispatch(setResume(newResume));
                     dispatch(setMeta(meta.val()));
                     callback();
                 });

@@ -5,8 +5,6 @@ import prettyPrint from '../../Js/PrettyPrint';
 
 const PanelElement = (props) =>{
     
-    const keys = Object.keys(props.data);
-
     const inputChangeHandler = (dataItem, value) => {
         const newData = {
             ...props.data,
@@ -16,7 +14,9 @@ const PanelElement = (props) =>{
     }
 
     //Converts key-value resume data into form information
+    const keys = Object.keys(props.data);
     const info = {};
+
     keys.forEach((key) => {
         info[key] = {
             label: prettyPrint(key)

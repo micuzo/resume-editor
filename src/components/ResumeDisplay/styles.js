@@ -106,10 +106,21 @@ const styles = StyleSheet.create({
             flexDirection: 'row',
             
         },
-        link:{
+        linkText:{
             fontSize: regular,
             fontWeight: 'light',
-            marginRight: 15
+            color: black,
+            textDecoration: 'none',
+        },
+        linkBox:{
+            display: 'flex',
+            flexDirection: 'row',
+            marginRight: 15,
+        },
+        icon:{
+            width: 11,
+            height: 11,
+            marginRight: 5
         },
         name:{ 
             fontSize: nameFS,
