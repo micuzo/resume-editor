@@ -124,7 +124,7 @@ const PersonalInformation = (props) =>{
     });
 
     return(
-        <View style={styles.personalInformationView}>
+        <View  style={styles.personalInformationView}>
             <View style={styles.left}>
                 <Text style={styles.name}>{data.name} </Text>
                 <View style={styles.links}>

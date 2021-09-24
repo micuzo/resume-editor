@@ -99,12 +99,12 @@ const styles = StyleSheet.create({
         left:{
             display: 'flex',
             flexDirection: 'column',
-            paddingLeft: '5pt'
+            paddingLeft: '0pt'
         },
         links:{
             display: 'flex',
             flexDirection: 'row',
-            
+            marginLeft: 5.5
         },
         linkText:{
             fontSize: regular,
@@ -128,6 +128,7 @@ const styles = StyleSheet.create({
             fontWeight: 'normal',
             marginBottom: 5,
             fontWeight: 'light',
+            marginLeft: 2.5
         },
         infoBox:{
             display: 'flex',
