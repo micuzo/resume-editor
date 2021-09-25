@@ -296,7 +296,7 @@ const styles = StyleSheet.create({
         view:{
             display: 'flex',
             flexDirection: 'column',
-            padding: '0pt 5pt 0 5pt',
+            padding: '0pt 5pt 0pt 5pt',
             marginTop: 5,
         },
         labelAndLineView:{
