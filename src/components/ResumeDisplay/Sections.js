@@ -101,7 +101,6 @@ const Education = (props) => {
                     <Text style={styles.location}>{data.location}</Text>
                 </View>
             </View>
-            
         </TitledSection>
     )
 }

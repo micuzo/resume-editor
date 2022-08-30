@@ -241,7 +241,7 @@ const styles = StyleSheet.create({
             flexDirection: 'row',
             justifyContent: 'flex-start',
             alignItems: 'center',
-            marginBottom: '3pt'
+            marginBottom: '3pt',
         },
         title:{
             color: darkBlue,
@@ -267,6 +267,8 @@ const styles = StyleSheet.create({
         timelineView:{
             display: 'flex',
             flexDirection: 'row',
+            alignItems: 'center',
+            marginBottom: '2.9pt',
         },
         timeline:{
             color: grey,
@@ -379,7 +381,7 @@ const styles = StyleSheet.create({
             justifyContent: 'flex-start',
             flexWrap: 'wrap',
             alignItems: 'center',
-            marginBottom: '4pt'
+            marginBottom: '4pt',
         },
         lineViewDesc:{
             display: 'flex',
@@ -402,7 +404,7 @@ const styles = StyleSheet.create({
             fontSize: bulletSize,
             width: bulletSize / 2,
             margin: 0,
-            height: '100%',
+            height: '1pt',
             whiteSpace: 'pre'
         },
     }
