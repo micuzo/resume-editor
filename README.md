@@ -16,8 +16,3 @@ MyResume is a resume managing and editiing web application.
 - Bootstrapped with create-react-app.
 - Used [react-pdf](https://react-pdf.org/) to create the pdf documents and to display a pdf viewer.
 - Used **Firebase** for authentication and data storage.
-
-## Screenshots
-![editor](myresume_screenshot_1.png)
-
-![home](myresume_screenshot_2.png)
