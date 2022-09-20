@@ -10,7 +10,6 @@
     "@testing-library/user-event": "^12.2.2",
     "axios": "^0.21.1",
     "firebase": "^8.2.1",
-    "firebase-tools": "^9.18.0",
     "ramda": "^0.27.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -26,7 +25,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "react-scripts build && firebase deploy"
   },
   "eslintConfig": {
     "extends": [

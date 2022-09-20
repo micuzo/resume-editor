@@ -8,7 +8,7 @@ import allStyles from './styles';
 import { SkillTypes } from '../../services/schemas';
 import { prettyPrint } from '../../services/helper';
 
-const readTextArea = (input, isDescription = false) => {
+const readTextArea = (input) => {
     if (input.length === 0 || input === undefined || input === null) return <Text></Text>;
 
     const styles = allStyles.GeneralText;
@@ -27,14 +27,11 @@ const readTextArea = (input, isDescription = false) => {
 
         const charArray = line.split("");
 
-        let lineStart = null;
-        if(!isDescription){
-            lineStart = (
-                <Text style={charArray[0] === '-'? styles.bulletPoint : styles.indent}>
-                    {charArray[0] === '-' ? '•' : ' '}
-                </Text>
-            );
-        }
+        const lineStart = (
+            <Text style={charArray[0] === '-'? styles.bulletPoint : styles.indent}>
+                {charArray[0] === '-' ? '•' : ' '}
+            </Text>
+        );
         
         //Build individual Text Components with different styling for this line
         charArray.forEach((c, index) => {
@@ -69,7 +66,7 @@ const readTextArea = (input, isDescription = false) => {
         });
 
         return (
-            <View key={`line ${lineIndex} ${input}`} style={isDescription ? styles.lineViewDesc : styles.lineView}>
+            <View key={`line ${lineIndex} ${input}`} style={charArray[0] === '-' ? styles.lineView : styles.lineViewNoBulletPoint}>
                 {lineStart}
                 <Text>
                     {textComponents}
@@ -186,15 +183,13 @@ const ProjExp = (props) => {
         });
 
         if(projExp.responsibilities !== ''){
-            const textComponents = readTextArea(projExp.responsibilities);
-            const descComponents = readTextArea(projExp.description, true);
-            
+            const textComponents = readTextArea(projExp.responsibilities);            
             return(
                 <View key={index} style={styles.view}>
                     <View style={styles.header}>
                         <View style={styles.titleDesc}>
                             <Text style={styles.title}>{projExp[key] + ' | '}</Text>
-                            {descComponents}
+                            <Text style={styles.description}>{projExp.description}</Text>
                             <View style={styles.tags}>
                                 {tags}
                             </View>

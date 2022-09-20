@@ -31,16 +31,19 @@ const headingGrey = '#F3F3F3';
 const darkGreen = "#484B36";
 const highlightBlue = '#e4f1fb';
 const grey = '#737373';
+const textGrey = '#252525';
 
 //font sizes
 const nameFS = 36;
 const infoFS = 9;
 const headingTitleFS = 12;
 const large = 10;
-const regular = 9.5;
+const regular = 9;
+const bulletPointLinesFS = 9;
 const small = 8;
 const bulletSize = 14;
-const descriptionSize = 10;
+const projExpTitleFS = 9.5;;
+const descriptionSize = 9.5;
 
 //other
 const sectionPadding = '10pt';
@@ -156,12 +159,12 @@ const styles = StyleSheet.create({
         },
         timeline:{
             color: grey,
-            fontSize: small,
+            fontSize: regular,
             fontWeight: 'normal'
         },
         location:{
             color: grey,
-            fontSize: small,
+            fontSize: regular,
             fontWeight: 'normal'
         },
         secondaryLine:{
@@ -225,7 +228,8 @@ const styles = StyleSheet.create({
             paddingTop: sectionPadding,
             display: 'flex',
             flexDirection: 'column',
-            paddingHorizontal: '5pt'
+            paddingHorizontal: '5pt',
+            marginBottom: '1pt',
         },
         header:{
             display: 'flex',
@@ -241,12 +245,12 @@ const styles = StyleSheet.create({
             flexDirection: 'row',
             justifyContent: 'flex-start',
             alignItems: 'center',
-            marginBottom: '3pt',
+            marginBottom: '0pt',
         },
         title:{
             color: darkBlue,
             fontWeight: 'normal',
-            fontSize: regular,
+            fontSize: projExpTitleFS,
         },
         description:{
             color: black,
@@ -256,7 +260,7 @@ const styles = StyleSheet.create({
         responsibilitiesView:{
             display: 'flex',
             flexDirection: 'column',
-            marginTop: '2pt',
+            marginTop: '0pt',
             flexWrap: 'wrap',
             width: '100%'
         },
@@ -268,11 +272,10 @@ const styles = StyleSheet.create({
             display: 'flex',
             flexDirection: 'row',
             alignItems: 'center',
-            marginBottom: '2.9pt',
         },
         timeline:{
             color: grey,
-            fontSize: small,
+            fontSize: regular,
             fontWeight: 'normal'
         },
         tags:{
@@ -311,14 +314,14 @@ const styles = StyleSheet.create({
             display: 'flex',
             flexDirection: 'row',
             alignItems: 'center',
-            height: '18pt',
+            height: '16pt',
             backgroundColor: beige,
             borderRadius: '5pt',
         },
         skill:{
-            paddingHorizontal: '8pt',
+            paddingHorizontal: '6pt',
             color: darkGreen,
-            fontSize: regular,
+            fontSize: bulletPointLinesFS,
             fontWeight: 'bold',
             border: 'none',
             backgroundColor: beige,
@@ -340,34 +343,35 @@ const styles = StyleSheet.create({
     GeneralText: {
         highlightedBold:{
             fontWeight: 'normal',
-            fontSize:  regular,
+            fontSize:  bulletPointLinesFS,
             backgroundColor: highlightBlue,
             margin: 0,
             padding: 0,
         },
         bold:{
             fontWeight: 'normal',
-            fontSize:  regular,
+            fontSize:  bulletPointLinesFS,
             paddingBottom: '0pt',
             margin: 0,
             padding: 0,
+            color: '#323232'
         },
         highlighted:{
-            fontSize: regular,
+            fontSize: bulletPointLinesFS,
             backgroundColor: highlightBlue,
             margin: 0,
             padding: 0
         },
         regular:{
-            color: black,
+            color: textGrey,
             fontWeight: 'light',
-            fontSize: regular,
+            fontSize: bulletPointLinesFS,
             margin: 0,
             padding: 0,
         },
         whiteRegular: {
             color: white,
-            fontSize: regular,
+            fontSize: bulletPointLinesFS,
             margin: 0,
             padding: 0
         },
@@ -381,7 +385,15 @@ const styles = StyleSheet.create({
             justifyContent: 'flex-start',
             flexWrap: 'wrap',
             alignItems: 'center',
-            marginBottom: '4pt',
+            marginTop: '4pt',
+        },
+        lineViewNoBulletPoint:{
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'flex-start',
+            flexWrap: 'wrap',
+            alignItems: 'center',
+            marginTop: '3pt',
         },
         lineViewDesc:{
             display: 'flex',
