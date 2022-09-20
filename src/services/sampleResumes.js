@@ -29,7 +29,7 @@ export const tutorialResume  = {
     [SectionStrings.Experience]:[
         {
             company: 'Tutorial',
-            description: 'This <section> contains some <[helpful] examples>.',
+            description: 'Job title / description',
             responsibilities: sampleResponsibilities,
             timeline: '06/2018 - 07/2018'
         }
