@@ -15,9 +15,9 @@ const ResumeDisplay = (props) => {
 
     const sections = [
         'PersonalInformation',
-        'Education',
         'Experience',
         'Projects',
+        'Education',
         'Skills'
     ]
 
@@ -34,13 +34,12 @@ const ResumeDisplay = (props) => {
     
     // Create Document Component
     const MyDocument = () => (
-        <Document title={props.title}>
+        <Document>
             <Page size="LETTER" style={styles.page}>
                 {sectionsJSX}
             </Page>
         </Document>
     );
-    
     //Show pdf viewer on desktop
     let jsx = 
         <div className={classes.ResumeDisplay}>
